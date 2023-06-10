@@ -1,0 +1,3 @@
+export enum Rate {
+  WORST, BAD, INDIFFERENT, GOOD, BEST, UNKNOWN
+}

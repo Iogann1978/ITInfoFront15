@@ -1,0 +1,26 @@
+{
+  "id": null,
+  "title": "Beginning Jakarta EE Enterprise Edition for Java: From Novice to Professional",
+  "publisher": {
+    "id": null,
+    "name": "Apress"
+  },
+  "rate": "GOOD",
+  "state": "PLANNED",
+  "tags": null,
+  "year": 2019,
+  "descript": {
+    "id": null,
+    "text": ""
+  },
+  "content": null,
+  "file": null,
+  "pages": 444,
+  "isbn": "9781484250792",
+  "authors": [
+    {
+      "id": null,
+      "name": "Peter Späth"
+    }
+  ]
+}

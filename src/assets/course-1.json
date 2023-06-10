@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "title": "HGYUJ",
+  "duration": 3,
+  "publisher": {
+    "id": 4,
+    "name": "itvdn"
+  },
+  "rate": "GOOD",
+  "state": "STUDIED",
+  "year": 2021,
+  "descript": {
+    "id": 0
+  },
+  "file": {
+    "id": 3,
+    "filename": "dssaa",
+    "size": 0
+  },
+  "tags": [
+    {
+      "id": 1,
+      "tag": "JavaScript"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": 0,
+  "title": "ASDF",
+  "duration": 3,
+  "publisher": {
+    "id": 3,
+    "name": "STEPIK"
+  },
+  "rate": "GOOD",
+  "state": "STUDIED",
+  "year": 2020,
+  "descript": {
+    "id": 0
+  },
+  "file": {
+    "id": 2,
+    "filename": "tfder",
+    "size": 0
+  },
+  "tags": [
+    {
+      "id": 0,
+      "tag": "Java"
+    }
+  ]
+}

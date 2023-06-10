@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Книги и курсы">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/book', -1]">
+      <mat-icon>book</mat-icon>
+      <span>Добавить книгу</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/course', -1]">
+      <mat-icon>video_library</mat-icon>
+      <span>Добавить курс</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/publisher', -1]">
+      <mat-icon>local_library</mat-icon>
+      <span>Добавить издателя</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/tag', null]">
+      <mat-icon>bookmark</mat-icon>
+      <span>Добавить тэг</span>
+    </button>
+    <button mat-menu-item [routerLink]="'/find'">
+      <mat-icon>search</mat-icon>
+      <span>Поиск</span>
+    </button>
+    <button mat-menu-item (click)="export()">
+      <mat-icon>font_download</mat-icon>
+      <span>Экспорт в html</span>
+    </button>
+  </mat-menu>
+
+  <span>Книги и курсы</span>
+  <span class="horizontal-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>

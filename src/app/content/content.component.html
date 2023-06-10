@@ -1,0 +1,20 @@
+<mat-tab-group mat-align-tabs="start" [(selectedIndex)]="tabIndex" (selectedIndexChange)="onChange($event)">
+  <mat-tab label="Книги">
+    <app-books></app-books>
+  </mat-tab>
+  <mat-tab label="Курсы">
+    <app-courses></app-courses>
+  </mat-tab>
+  <mat-tab label="Издатели">
+    <app-publishers></app-publishers>
+  </mat-tab>
+  <mat-tab label="Авторы">
+    <app-authors></app-authors>
+  </mat-tab>
+  <mat-tab label="Тэги">
+    <app-tags></app-tags>
+  </mat-tab>
+  <mat-tab label="Файлы">
+    <app-files></app-files>
+  </mat-tab>
+</mat-tab-group>

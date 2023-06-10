@@ -1,0 +1,29 @@
+{
+  "id": 0,
+  "file": {
+    "id": 0,
+    "filename": "asdf.txt",
+    "size": 0
+  },
+  "publisher": {
+    "id": 0,
+    "name": "O`Reily"
+  },
+  "rate": "GOOD",
+  "state": "LEFT",
+  "tags": [{"tag": "Java"}],
+  "title": "Info 1",
+  "year": 2020,
+  "descripts": [
+    {
+      "id": 0,
+      "name": "Описание 1",
+      "text": "<h1>Описание 1</h1><p>Текст описания</p>"
+    },
+    {
+      "id": 1,
+      "name": "Описание 2",
+      "text": "<h1>Описание 2</h1><p>Текст описания</p>"
+    }
+  ]
+}

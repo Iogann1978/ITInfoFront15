@@ -1,0 +1,48 @@
+[
+  {
+    "id": 0,
+    "title": "ASDF",
+    "duration": 3,
+    "publisher": {
+      "id": 3,
+      "name": "STEPIK"
+    },
+    "rate": "GOOD",
+    "state": "STUDIED",
+    "year": 2020,
+    "file": {
+      "id": 2,
+      "filename": "tfder",
+      "size": 0
+    },
+    "tags": [
+      {
+        "id": 0,
+        "tag": "Java"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "HGYUJ",
+    "duration": 3,
+    "publisher": {
+      "id": 4,
+      "name": "itvdn"
+    },
+    "rate": "GOOD",
+    "state": "STUDIED",
+    "year": 2021,
+    "file": {
+      "id": 3,
+      "filename": "dssaa",
+      "size": 0
+    },
+    "tags": [
+      {
+        "id": 1,
+        "tag": "JavaScript"
+      }
+    ]
+  }
+]
