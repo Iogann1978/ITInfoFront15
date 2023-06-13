@@ -34,6 +34,7 @@ import { DescriptComponent } from './descript/descript.component';
 import { DescriptsComponent } from './descripts/descripts.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatPaginatorModule,
     MatBadgeModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

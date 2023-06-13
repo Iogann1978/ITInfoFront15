@@ -4,7 +4,7 @@
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Название книги</th>
       <td mat-cell *matCellDef="let element">
-        <span [matBadge]="element.descripts.length > 0 ? element.descripts.length : null" matBadgeOverlap="true">{{element.title}}</span>
+        <span [matBadge]="element.descripts?.length > 0 ? element.descripts.length : null" matBadgeOverlap="true">{{element.title}}</span>
       </td>
     </ng-container>
 
