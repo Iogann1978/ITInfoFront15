@@ -1,5 +1,5 @@
 export interface InfoFile {
-  id: number;
+  id?: number;
   filename: string;
   size: number;
   title?: string;

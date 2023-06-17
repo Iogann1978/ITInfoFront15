@@ -1,0 +1,13 @@
+.book-form {
+  min-width: 150px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.book-full-width {
+  width: 100%;
+}
+
+.book-card {
+  max-width: 1000px;
+}

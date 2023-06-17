@@ -6,12 +6,12 @@ import { State } from "./state";
 import { Tag } from "./tag";
 
 export interface Info {
-  id: number;
-  title: string;
-  year: number;
+  id?: number;
+  title?: string;
+  year?: number;
   rate: Rate;
   state: State;
-  publisher: Publisher;
+  publisher?: Publisher;
   file?: InfoFile;
   descripts?: Descript[];
   tags: Tag[];

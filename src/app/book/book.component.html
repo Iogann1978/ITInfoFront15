@@ -1,1 +1,129 @@
-<p>book works!</p>
+<form class="book-form" [formGroup]="bookFormGroup">
+  <mat-card class="book-card">
+    <mat-card-header>
+      <mat-card-title>Книга</mat-card-title>
+      <mat-card-subtitle>{{book.id ? 'Редактирование' : 'Добавление'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-grid-list cols="12" rowHeight="70px">
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>ISBN</mat-label>
+              <input matInput placeholder="ISBN" formControlName="isbnCtrl">
+              <button mat-icon-button matSuffix color="primary" aria-label="Искать в Google" (click)="getGoogle()" [disabled]="book.id">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Название</mat-label>
+              <input matInput placeholder="title" formControlName="titleCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="8" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Издательство</mat-label>
+              <mat-select formControlName="publisherCtrl">
+                <mat-option *ngFor="let pub of publishers" [value]="pub.id">{{pub.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Год</mat-label>
+              <input type="number" matInput placeholder="year" formControlName="yearCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Количество страниц</mat-label>
+              <input type="number" matInput placeholder="pages" formControlName="pagesCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="6" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Оценка</mat-label>
+              <mat-select formControlName="rateCtrl">
+                <mat-option *ngFor="let rate of rateValues | keys" [value]="rate.key">{{rate.value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="6" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Состояние</mat-label>
+              <mat-select formControlName="stateCtrl">
+                <mat-option *ngFor="let state of stateValues | keys" [value]="state.key">{{state.value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="book-full-width">
+              <mat-label>Файл книги</mat-label>
+              <input matInput formControlName="bookFileCtrl">
+              <button mat-icon-button matSuffix (click)="bookFileInput.click()">
+                <mat-icon>file_upload</mat-icon>
+              </button>
+              <input hidden (change)="selectBookFile($event)" #bookFileInput type="file" id="bookFile">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Авторы</mat-label>
+              <input matInput placeholder="authors" formControlName="authorsCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="book-full-width" appearance="fill">
+              <mat-label>Тэги</mat-label>
+              <mat-chip-grid #chipList aria-label="Выбор тэгов">
+                <mat-chip-row
+                  *ngFor="let tag of tags"
+                  [removable]="removable"
+                  (removed)="remove(tag)">
+                  {{tag}}
+                  <button matChipRemove *ngIf="removable">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip-row>
+                <input
+                  placeholder="Добавить тэг..."
+                  #tagInput
+                  formControlName="tagCtrl"
+                  [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-grid>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let tag of filteredTags | async" [value]="tag" [disabled]="disableTag(tag)">
+                  {{tag}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button (click)="delete()" mat-fab color="warn" [disabled]="!book.id">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button (click)="save()" mat-fab color="accent" [disabled]="!bookFormGroup.valid">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-fab color="primary" [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</form>
