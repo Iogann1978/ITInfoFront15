@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Добавить описание</h1>
+<mat-dialog-content>
+  <form class="book-form" [formGroup]="descriptFormGroup">
+    <mat-form-field class="descript-full-width" appearance="fill">
+      <mat-label>Название</mat-label>
+      <input matInput placeholder="title" formControlName="titleCtrl">
+    </mat-form-field>
+    <mat-form-field class="descript-full-width">
+      <mat-label>Файл с описанием</mat-label>
+      <input matInput formControlName="fileCtrl">
+      <button mat-icon-button matSuffix (click)="descriptFileInput.click()">
+        <mat-icon>file_upload</mat-icon>
+      </button>
+      <input hidden (change)="selectDescriptFile($event)" #descriptFileInput type="file" id="descriptFile">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-icon-button (click)="close(true)">
+    <mat-icon>done</mat-icon>
+  </button>
+  <button mat-icon-button (click)="close(false)">
+    <mat-icon>cancel</mat-icon>
+  </button>
+</mat-dialog-actions>

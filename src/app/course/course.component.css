@@ -1,0 +1,13 @@
+.course-form {
+  min-width: 150px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.course-full-width {
+  width: 100%;
+}
+
+.course-card {
+  max-width: 1000px;
+}

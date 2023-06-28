@@ -43,6 +43,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ReactiveFormsModule} from "@angular/forms";
 import { KeysPipe } from './keys.pipe';
+import { DescriptDialogComponent } from './descript-dialog/descript-dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,10 @@ import { KeysPipe } from './keys.pipe';
     FindComponent,
     DescriptComponent,
     DescriptsComponent,
-    KeysPipe
+    KeysPipe,
+    DescriptDialogComponent,
+    CoursesComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

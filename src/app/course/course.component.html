@@ -1,1 +1,113 @@
-<p>course works!</p>
+<form class="course-form" [formGroup]="courseFormGroup">
+  <mat-card class="course-card">
+    <mat-card-header>
+      <mat-card-title>Курс</mat-card-title>
+      <mat-card-subtitle>{{course.id ? 'Редактирование' : 'Добавление'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-grid-list cols="12" rowHeight="70px">
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Название</mat-label>
+              <input matInput placeholder="title" formControlName="titleCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="8" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Издательство</mat-label>
+              <mat-select formControlName="publisherCtrl">
+                <mat-option *ngFor="let pub of publishers" [value]="pub.id">{{pub.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Год</mat-label>
+              <input type="number" matInput placeholder="year" formControlName="yearCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Продолжительность (мин)</mat-label>
+              <input type="number" matInput placeholder="duration" formControlName="durationCtrl">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="6" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Оценка</mat-label>
+              <mat-select formControlName="rateCtrl">
+                <mat-option *ngFor="let rate of rateValues | keys" [value]="rate.key">{{rate.value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="6" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Состояние</mat-label>
+              <mat-select formControlName="stateCtrl">
+                <mat-option *ngFor="let state of stateValues | keys" [value]="state.key">{{state.value}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="course-full-width">
+              <mat-label>Папка курса</mat-label>
+              <input matInput formControlName="coursePathCtrl">
+              <button mat-icon-button matSuffix (click)="coursePathInput.click()">
+                <mat-icon>file_upload</mat-icon>
+              </button>
+              <input hidden (change)="selectCoursePath($event)" #coursePathInput type="file" id="coursePath" webkitdirectory directory multiple>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <mat-form-field class="course-full-width" appearance="fill">
+              <mat-label>Тэги</mat-label>
+              <mat-chip-grid #chipList aria-label="Выбор тэгов">
+                <mat-chip
+                  *ngFor="let tag of tags"
+                  [removable]="removable"
+                  (removed)="remove(tag)">
+                  {{tag}}
+                  <button matChipRemove *ngIf="removable">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input
+                  placeholder="Добавить тэг..."
+                  #tagInput
+                  formControlName="tagCtrl"
+                  [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-grid>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let tag of filteredTags | async" [value]="tag" [disabled]="disableTag(tag)">
+                  {{tag}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button (click)="delete()" mat-fab color="warn" [disabled]="!course.id">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button (click)="save()" mat-fab color="accent" [disabled]="!courseFormGroup.valid">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-fab color="primary" [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</form>

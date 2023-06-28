@@ -9,8 +9,8 @@ export interface Info {
   id?: number;
   title?: string;
   year?: number;
-  rate: Rate;
-  state: State;
+  rate?: Rate;
+  state?: State;
   publisher?: Publisher;
   file?: InfoFile;
   descripts?: Descript[];

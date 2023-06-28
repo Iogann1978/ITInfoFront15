@@ -1,5 +1,5 @@
 export interface Descript {
-  id: number;
+  id?: number;
   name: string;
   infoId: number;
   text: string;

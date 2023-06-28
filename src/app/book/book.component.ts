@@ -154,8 +154,8 @@ export class BookComponent implements OnInit, OnDestroy {
         this.bookFormGroup.get('yearCtrl')!.setValue(this.book.year);
         this.bookFormGroup.get('pagesCtrl')!.setValue(this.book.pages);
         this.bookFormGroup.get('bookFileCtrl')!.setValue(this.book.file?.filename);
-        this.bookFormGroup.get('rateCtrl')!.setValue(Rate[this.book.rate].toString());
-        this.bookFormGroup.get('stateCtrl')!.setValue(State[this.book.state].toString());
+        this.bookFormGroup.get('rateCtrl')!.setValue(Rate[this.book.rate!].toString());
+        this.bookFormGroup.get('stateCtrl')!.setValue(State[this.book.state!].toString());
         this.bookFormGroup.get('authorsCtrl')!.setValue(this.book.authors.map(a => a.name).join(', '));
       });
       this.bookService.getBookTags(id).pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => this.tags = data);
@@ -192,8 +192,8 @@ export class BookComponent implements OnInit, OnDestroy {
         this.bookFormGroup.get('publisherCtrl')!.setValue(this.book.publisher!.id);
         this.bookFormGroup.get('yearCtrl')!.setValue(this.book.year);
         this.bookFormGroup.get('pagesCtrl')!.setValue(this.book.pages);
-        this.bookFormGroup.get('rateCtrl')!.setValue(Rate[this.book.rate].toString());
-        this.bookFormGroup.get('stateCtrl')!.setValue(State[this.book.state].toString());
+        this.bookFormGroup.get('rateCtrl')!.setValue(Rate[this.book.rate!].toString());
+        this.bookFormGroup.get('stateCtrl')!.setValue(State[this.book.state!].toString());
         this.bookFormGroup.get('authorsCtrl')!.setValue(this.book.authors.map(a => a.name).join(', '));
         this.tags = bookItem.tags.map((tag: Tag) => tag.tag);
       });
