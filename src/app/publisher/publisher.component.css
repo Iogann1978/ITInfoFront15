@@ -1,0 +1,13 @@
+.publisher-form {
+  min-width: 150px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.publisher-full-width {
+  width: 100%;
+}
+
+.publisher-card {
+  max-width: 1000px;
+}

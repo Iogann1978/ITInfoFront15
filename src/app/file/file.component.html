@@ -1,1 +1,32 @@
-<p>file works!</p>
+<form class="file-form" [formGroup]="fileFormGroup">
+  <mat-card class="file-card">
+    <mat-card-header>
+      <mat-card-title>Файл</mat-card-title>
+      <mat-card-subtitle>Редактирование</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field class="file-full-width" appearance="fill">
+        <mat-label>Имя файла</mat-label>
+        <input matInput placeholder="filename" formControlName="fileNameCtrl">
+      </mat-form-field>
+
+      <mat-form-field class="file-full-width" appearance="fill">
+        <mat-label>Размер файла</mat-label>
+        <input type="number" matInput placeholder="size" formControlName="fileSizeCtrl">
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button (click)="delete()" mat-fab color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button (click)="save()" mat-fab color="accent" [disabled]="!fileFormGroup.valid">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-fab color="primary" [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

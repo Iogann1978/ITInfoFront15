@@ -1,1 +1,9 @@
-<p>descript works!</p>
+<mat-toolbar color="primary">
+  <mat-label>{{descript.name}}</mat-label>
+  <span class="descript-spacer"></span>
+  <button mat-icon-button aria-label="На главную страницу" [routerLink]="['/home']">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div [innerHTML]="descript.text"></div>

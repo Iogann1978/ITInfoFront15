@@ -1,0 +1,13 @@
+.file-form {
+  min-width: 150px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.file-full-width {
+  width: 100%;
+}
+
+.file-card {
+  max-width: 1000px;
+}
