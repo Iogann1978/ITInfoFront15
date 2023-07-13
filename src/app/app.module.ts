@@ -44,6 +44,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {ReactiveFormsModule} from "@angular/forms";
 import { KeysPipe } from './keys.pipe';
 import { DescriptDialogComponent } from './descript-dialog/descript-dialog.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { DescriptDialogComponent } from './descript-dialog/descript-dialog.compo
     MatSelectModule,
     MatChipsModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
