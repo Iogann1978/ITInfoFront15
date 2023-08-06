@@ -23,8 +23,8 @@ import {Tag} from "../model/tag";
 })
 export class BookComponent implements OnInit, OnDestroy {
   ngUnsubscribe = new Subject<void>();
-  rateValues?: Rate;
-  stateValues?: State;
+  rateValues = Rate;
+  stateValues = State;
   publishers?: Publisher[];
 
   removable = true;
@@ -57,6 +57,7 @@ export class BookComponent implements OnInit, OnDestroy {
     private router: Router,
     private dialog: MatDialog
   ) {
+    console.log('rateValues: ', this.rateValues);
     this.tags = [];
 
     this.bookFormGroup = new FormGroup({

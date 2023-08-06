@@ -24,8 +24,8 @@ import {Descript} from "../model/descript";
 })
 export class CourseComponent  implements OnInit, OnDestroy {
   ngUnsubscribe = new Subject<void>();
-  rateValues?: Rate;
-  stateValues?: State;
+  rateValues = Rate;
+  stateValues = State;
   publishers?: Publisher[];
 
   removable = true;
