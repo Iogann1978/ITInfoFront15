@@ -1,0 +1,13 @@
+.find-card {
+  max-width: 1000px;
+}
+
+.find-form {
+  min-width: 150px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.find-full-width {
+  width: 100%;
+}
