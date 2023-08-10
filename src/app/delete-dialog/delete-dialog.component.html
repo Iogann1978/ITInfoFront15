@@ -1,1 +1,12 @@
-<p>delete-dialog works!</p>
+<h1 mat-dialog-title>Удаление</h1>
+<mat-dialog-content>
+  Подтвердить удаление?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-icon-button (click)="close(true)">
+    <mat-icon>done</mat-icon>
+  </button>
+  <button mat-icon-button (click)="close(false)">
+    <mat-icon>cancel</mat-icon>
+  </button>
+</mat-dialog-actions>
