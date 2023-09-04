@@ -20,7 +20,9 @@ export const environment = {
   apiDescriptEndpointId: './assets/descript-:id.json',
   apiDescriptEndpoint: './assets/descripts.json',
   apiInfoEndpointId: './assets/info-:id.json',
-  apiInfoEndpoint: './assets/info.json'
+  apiInfoEndpoint: './assets/info.json',
+  apiFindInfoEndpoint: './assets/find-info.json',
+  apiFindBookEndpoint: './assets/find-book.json'
 };
 
 /*

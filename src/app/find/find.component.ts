@@ -7,6 +7,9 @@ import {TagsService} from "../tags/tags.service";
 import {PublishersService} from "../publishers/publishers.service";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
+import { Info } from '../model/info';
+import { Rate } from '../model/rate';
+import { State } from '../model/state';
 
 @Component({
   selector: 'app-find',
@@ -18,6 +21,17 @@ export class FindComponent implements OnInit, OnDestroy {
   tags?: Tag[];
   publishers?: Publisher[];
   findFormGroup: FormGroup;
+  info: Info = {
+    file: undefined,
+    publisher: undefined,
+    rate: Rate.UNKNOWN,
+    state: State.PLANNED,
+    tags: [],
+    title: "",
+    year: 0,
+    id: undefined,
+    descripts: []
+  };
 
   constructor(
     private findService: FindService,
@@ -37,6 +51,33 @@ export class FindComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+  }
+
+  findByTitle(): void {
+    this.findService.findInfo('title', this.findFormGroup.get('titleCtrl')!.value)
+    .pipe(takeUntil(this.ngUnsubscribe)).subscribe(info => {
+      this.info = info;
+      this.info.file = undefined;
+      this.publishersService.getPublishers().pipe(takeUntil(this.ngUnsubscribe)).subscribe(pubs => {
+        this.publishers = pubs;
+      });
+    });
+  }
+
+  findByDescript(): void {
+
+  }
+
+  findByAuthor(): void {
+
+  }
+
+  findByTag(): void {
+
+  }
+
+  findByPublisher(): void {
+
   }
 
   ngOnDestroy(): void {

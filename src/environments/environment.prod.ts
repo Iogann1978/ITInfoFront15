@@ -16,5 +16,7 @@ export const environment = {
   apiDescriptEndpointId: 'http://localhost:8080/api/descript/:id',
   apiDescriptEndpoint: 'http://localhost:8080/api/descript',
   apiInfoEndpointId: 'http://localhost:8080/api/info/:id',
-  apiInfoEndpoint: 'http://localhost:8080/api/info'
+  apiInfoEndpoint: 'http://localhost:8080/api/info',
+  apiFindInfoEndpoint: 'http://localhost:8080/api/find/info',
+  apiFindBookEndpoint: 'http://localhost:8080/api/find/book'
 };
