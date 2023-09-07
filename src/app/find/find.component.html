@@ -7,49 +7,71 @@
 
     <mat-card-content>
 
-        <mat-form-field class="find-full-width" appearance="fill">
-          <mat-label>Поиск по названию</mat-label>
-          <input matInput placeholder="title" formControlName="titleCtrl">
-          <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByTitle()">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
+      <mat-grid-list cols="4" rowHeight="70px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="find-full-width" appearance="fill">
+            <mat-label>Поиск по названию</mat-label>
+            <input matInput placeholder="title" formControlName="titleCtrl">
+            <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByTitle()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-grid-tile>
 
-        <mat-form-field class="find-full-width" appearance="fill">
-          <mat-label>Поиск по содержанию</mat-label>
-          <input matInput placeholder="content" formControlName="contentCtrl">
-          <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByDescript()">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>Title</span>
+              <span matListItemLine>Second line</span>
+            </mat-list-item>
+          </mat-list>
+        </mat-grid-tile>
 
-        <mat-form-field class="find-full-width" appearance="fill">
-          <mat-label>Поиск по автору</mat-label>
-          <input matInput placeholder="author" formControlName="authorCtrl">
-          <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByAuthor()">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="find-full-width" appearance="fill">
+            <mat-label>Поиск по содержанию</mat-label>
+            <input matInput placeholder="content" formControlName="descriptCtrl">
+            <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByDescript()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-grid-tile>
 
-        <mat-form-field class="find-full-width" appearance="fill">
-          <mat-label>Поиск по тэгам</mat-label>
-          <mat-select formControlName="tagCtrl">
-            <mat-option *ngFor="let tag of tags" [value]="tag.tag">{{tag.tag}}</mat-option>
-          </mat-select>
-          <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByTag()">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="find-full-width" appearance="fill">
+            <mat-label>Поиск по автору</mat-label>
+            <input matInput placeholder="author" formControlName="authorCtrl">
+            <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByAuthor()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-grid-tile>
 
-        <mat-form-field class="find-full-width" appearance="fill">
-          <mat-label>Поиск по издателю</mat-label>
-          <mat-select formControlName="publisherCtrl">
-            <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher.name}}</mat-option>
-          </mat-select>
-          <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByPublisher()">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="find-full-width" appearance="fill">
+            <mat-label>Поиск по тэгам</mat-label>
+            <mat-select formControlName="tagCtrl">
+              <mat-option *ngFor="let tag of tags" [value]="tag.tag">{{tag.tag}}</mat-option>
+            </mat-select>
+            <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByTag()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="find-full-width" appearance="fill">
+            <mat-label>Поиск по издателю</mat-label>
+            <mat-select formControlName="publisherCtrl">
+              <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">{{publisher.name}}</mat-option>
+            </mat-select>
+            <button mat-icon-button matSuffix color="primary" aria-label="Искать" (click)="findByPublisher()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-grid-tile>
+
+      </mat-grid-list>
 
     </mat-card-content>
 

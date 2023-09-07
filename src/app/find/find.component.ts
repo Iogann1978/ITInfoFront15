@@ -10,6 +10,7 @@ import {takeUntil} from "rxjs/operators";
 import { Info } from '../model/info';
 import { Rate } from '../model/rate';
 import { State } from '../model/state';
+import { BookItem } from '../model/book-item';
 
 @Component({
   selector: 'app-find',
@@ -23,6 +24,20 @@ export class FindComponent implements OnInit, OnDestroy {
   findFormGroup: FormGroup;
   info: Info = {
     file: undefined,
+    publisher: undefined,
+    rate: Rate.UNKNOWN,
+    state: State.PLANNED,
+    tags: [],
+    title: "",
+    year: 0,
+    id: undefined,
+    descripts: []
+  };
+  book: BookItem = {
+    authors: [],
+    file: undefined,
+    isbn: "",
+    pages: 0,
     publisher: undefined,
     rate: Rate.UNKNOWN,
     state: State.PLANNED,
@@ -46,7 +61,8 @@ export class FindComponent implements OnInit, OnDestroy {
       'tagCtrl': new FormControl(null),
       'titleCtrl': new FormControl(null),
       'publisherCtrl': new FormControl(null),
-      'authorCtrl': new FormControl(null)
+      'authorCtrl': new FormControl(null),
+      'descriptCtrl': new FormControl(null)
     });
   }
 
@@ -54,30 +70,33 @@ export class FindComponent implements OnInit, OnDestroy {
   }
 
   findByTitle(): void {
-    this.findService.findInfo('title', this.findFormGroup.get('titleCtrl')!.value)
-    .pipe(takeUntil(this.ngUnsubscribe)).subscribe(info => {
-      this.info = info;
-      this.info.file = undefined;
-      this.publishersService.getPublishers().pipe(takeUntil(this.ngUnsubscribe)).subscribe(pubs => {
-        this.publishers = pubs;
-      });
-    });
+    this.findInfo('title', this.findFormGroup.get('titleCtrl')!.value);
   }
 
   findByDescript(): void {
-
-  }
-
-  findByAuthor(): void {
-
+    this.findInfo('descript', this.findFormGroup.get('descriptCtrl')!.value);
   }
 
   findByTag(): void {
-
+    this.findInfo('tag', this.findFormGroup.get('tagCtrl')!.value);
   }
 
   findByPublisher(): void {
+    this.findInfo('publisher', this.findFormGroup.get('publisherCtrl')!.value);
+  }
 
+  findByAuthor(): void {
+    this.findBook('author', this.findFormGroup.get('authorCtrl')!.value);
+  }
+
+  private findInfo(key: string, value: string): void {
+    this.findService.findInfo(key, value)
+      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(info => this.info = info);
+  }
+
+  private findBook(key: string, value: string): void {
+    this.findService.findBook(key, value)
+      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(book => this.book = book);
   }
 
   ngOnDestroy(): void {
