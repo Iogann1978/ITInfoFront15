@@ -17,13 +17,13 @@ export class FindService {
     this.apiFindBookEndpoint = environment.apiFindBookEndpoint;
   }
 
-  findInfo(key: string, value: string): Observable<Info> {
+  findInfo(key: string, value: string): Observable<Info[]> {
     let params = new HttpParams().set(key, value);
-    return this.http.get<Info>(this.apiFindInfoEndpoint, {params: params});
+    return this.http.get<Info[]>(this.apiFindInfoEndpoint, {params: params});
   }
 
-  findBook(key: string, value: string): Observable<BookItem> {
+  findBook(key: string, value: string): Observable<BookItem[]> {
     let params = new HttpParams().set(key, value);
-    return this.http.get<BookItem>(this.apiFindBookEndpoint, {params: params});
+    return this.http.get<BookItem[]>(this.apiFindBookEndpoint, {params: params});
   }
 }

@@ -22,31 +22,8 @@ export class FindComponent implements OnInit, OnDestroy {
   tags?: Tag[];
   publishers?: Publisher[];
   findFormGroup: FormGroup;
-  info: Info = {
-    file: undefined,
-    publisher: undefined,
-    rate: Rate.UNKNOWN,
-    state: State.PLANNED,
-    tags: [],
-    title: "",
-    year: 0,
-    id: undefined,
-    descripts: []
-  };
-  book: BookItem = {
-    authors: [],
-    file: undefined,
-    isbn: "",
-    pages: 0,
-    publisher: undefined,
-    rate: Rate.UNKNOWN,
-    state: State.PLANNED,
-    tags: [],
-    title: "",
-    year: 0,
-    id: undefined,
-    descripts: []
-  };
+  info: Info[] = [];
+  books: BookItem[] = [];
 
   constructor(
     private findService: FindService,
@@ -58,6 +35,7 @@ export class FindComponent implements OnInit, OnDestroy {
     this.publishersService.getPublishers().pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(data => this.publishers = data);
     this.findFormGroup = new FormGroup({
+      'isbnCtrl': new FormControl(null),
       'tagCtrl': new FormControl(null),
       'titleCtrl': new FormControl(null),
       'publisherCtrl': new FormControl(null),
@@ -85,6 +63,10 @@ export class FindComponent implements OnInit, OnDestroy {
     this.findInfo('publisher', this.findFormGroup.get('publisherCtrl')!.value);
   }
 
+  findByIsbn(): void {
+    this.findBook('isbn', this.findFormGroup.get('isbnCtrl')!.value);
+  }
+
   findByAuthor(): void {
     this.findBook('author', this.findFormGroup.get('authorCtrl')!.value);
   }
@@ -96,7 +78,7 @@ export class FindComponent implements OnInit, OnDestroy {
 
   private findBook(key: string, value: string): void {
     this.findService.findBook(key, value)
-      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(book => this.book = book);
+      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(books => this.books = books);
   }
 
   ngOnDestroy(): void {
