@@ -1,64 +1,10 @@
 [
   {
-    "id": 0,
     "title": "ASDF",
-    "isbn": "435678",
-    "publisher": {
-      "id": 0,
-      "name": "O`Reily"
-    },
-    "pages": 10,
-    "rate": "BAD",
-    "state": "LEFT",
-    "year": 2020,
-    "file": {
-      "id": 0,
-      "filename": "asdf.txt",
-      "size": 0
-    },
-    "authors": [
-      {
-        "id": 0,
-        "name": "Joshua"
-      },
-      {
-        "id": 1,
-        "name": "Felix"
-      }
-    ],
-    "tags": [
-      {
-        "tag": "Java"
-      }
-    ]
+    "type": "BOOK"
   },
   {
-    "id": 1,
     "title": "HGGJGFS",
-    "isbn": "56774",
-    "publisher": {
-      "id": 1,
-      "name": "Pack"
-    },
-    "pages": 20,
-    "rate": "GOOD",
-    "state": "STUDIED",
-    "year": 2021,
-    "file": {
-      "id": 1,
-      "filename": "hgfrd.pdf",
-      "size": 0
-    },
-    "authors": [
-      {
-        "id": 3,
-        "name": "Tyson"
-      }
-    ],
-    "tags": [
-      {
-        "tag": "JavaScript"
-      }
-    ]
+    "type": "BOOK"
   }
 ]

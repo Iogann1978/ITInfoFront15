@@ -11,3 +11,7 @@
 .find-full-width {
   width: 100%;
 }
+
+mat-list {
+  overflow: auto;
+}
